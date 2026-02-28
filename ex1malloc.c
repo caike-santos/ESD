@@ -8,7 +8,7 @@ void preencheAl(int ***mat, int lin, int col){
     *mat = malloc(lin * sizeof(int*));
     
     for(i = 0; i<lin; i++){
-    	(*mat)[i] = malloc(col * sizeof(int*));
+    	(*mat)[i] = malloc(col * sizeof(int));
 	}
 	
 	for(i=0; i<lin;i++){
@@ -49,7 +49,7 @@ void exibirMatriz(int **mat, int lin, int col){
 
 void preencherVetor(int **vetor, int tam){
 	int i=0, c;
-	*vetor = malloc(tam * sizeof(int*));
+	*vetor = malloc(tam * sizeof(int));
 	
 	while(i<tam){
 		
@@ -74,14 +74,14 @@ void exibirVetor(int *vetor, int tam){
 	printf("\n\n");
 }
 
-int calcularDistancia(int ***m, int l, int c, int **v){
+int calcularDistancia(int **m, int l, int c, int *v){
 	int i, total = 0;
 	for(i=0;i<l-1;i++){
-		total += (*m)[(*v)[i] - 1][(*v)[i+1]-1] ;
+		total += m[v[i] - 1][v[i+1]-1] ;
 		if(i== l-2){
-			printf("%d\n\n", (*m)[(*v)[i] - 1][(*v)[i+1]-1]);
+			printf("%d\n\n", m[v[i] - 1][v[i+1]-1]);
 		}else{
-			printf("%d + ", (*m)[(*v)[i] - 1][(*v)[i+1]-1]);
+			printf("%d + ", m[v[i] - 1][v[i+1]-1]);
 		}
 		
 	}
@@ -110,4 +110,6 @@ int main(void){
     		 free(matriz[i]);
 		}
 		free(matriz);
+		free(vetor);
+		return 0;
 	}
