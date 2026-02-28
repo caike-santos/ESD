@@ -104,7 +104,7 @@ int main(void){
     preencherVetor(&vetor, lin);
     exibirVetor(vetor, lin);
     
-    printf("\n\nDistancia total: %d\n",calcularDistancia(&matriz, lin, col, &vetor));
+    printf("\n\nDistancia total: %d\n",calcularDistancia(matriz, lin, col, vetor));
     
     for(i=0; i<lin;i++){
     		 free(matriz[i]);
